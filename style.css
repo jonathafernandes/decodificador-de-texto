@@ -5,16 +5,15 @@
 }
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 16px;
 
-    background-color: #e9f1f8;
+    background-color: #F3F5FC;
 }
 
 .container {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-evenly;
 }
 
 .title {
@@ -24,11 +23,7 @@ body {
 }
 
 .title h1 {
-    color: #252575;
-}
-
-.title p {
-    opacity: 0.5;
+    color: #0A3871;
 }
 
 .side-left {
@@ -44,6 +39,7 @@ body {
 
 .text span {
     font-size: 0.8rem;
+    opacity: 0.8;
 
     margin-bottom: 10px;
 }
@@ -55,14 +51,14 @@ textarea {
     outline: none;
     border: none;
 
-    background-color: #e9f1f8;
+    background-color: #F3F5FC;
 
-    font-family: 'Lato', sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 1.7rem;
 }
 
 textarea::placeholder {
-    color: #252575;
+    color: #0A3871;
 }
 
 .buttons {
@@ -72,9 +68,9 @@ textarea::placeholder {
 
 .buttons button {
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
 
-    background-color: #252575;
+    background-color: #0A3871;
     color: #fff;
     font-family: 'Lato', sans-serif;
 
@@ -82,20 +78,76 @@ textarea::placeholder {
     width: 200px;
 }
 
+.side-right {
+    background-color: #fff;
+
+    border-radius: 20px;
+
+    width: 20%;
+    height: 80%;
+    padding: 20px;
+}
+
+.side-right img {
+    width: 100%;
+}
+
+.side-right h3 {
+    text-align: center;
+}
+
+.side-right p {
+    margin-top: 10px;
+
+    opacity: 0.7;
+
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+footer p {
+    opacity: 0.5;
+    text-align: center;
+
+    margin-top: 50px;
+}
+
 @media (max-width: 920px) {
     .container {
         flex-direction: column;
+        align-items: center;
         gap: 50px;
+    }
+
+    .side-right {
+        margin: 10px;
+        width: auto;
+    }
+
+    .side-right img {
+        display: none;
+    }
+
+    footer {
+        margin-bottom: 30px;
     }
 }
 
 @media (max-width: 485px) {
+    .container {
+        align-items: normal;
+    }
+
     .title p {
         text-align: center;
     }
 
     .title h1 {
-        font-size: 1.8rem;
+        font-size: 1.7rem;
+    }
+
+    textarea::placeholder {
+        opacity: 0.8;
     }
 
     textarea, .text, .side-right {
