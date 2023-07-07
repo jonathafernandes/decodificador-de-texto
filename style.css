@@ -67,6 +67,8 @@ textarea::placeholder {
 }
 
 .buttons button {
+    cursor: pointer;
+
     border: none;
     border-radius: 15px;
 
