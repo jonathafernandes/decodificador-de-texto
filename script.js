@@ -1,21 +1,45 @@
 const btnEncrypt = document.querySelector(".encrypt");
+const btnDecrypt = document.querySelector(".decrypt");
 const textarea = document.querySelector("#text");
-const result = document.querySelector(".side-right");
-// const secondKey = "i"; 
-// const thirdkey = "a";
-// const fourthkey = "o";
-// const fifthkey = "u";
+const resultDiv = document.querySelector(".side-right");
 
-btnEncrypt.addEventListener("click", function () {
-    const text = textarea.value;
-    const firstKey = "e";
-    let firstKeyWord = "enter";
+let originalText = "";
+let encryptedText = "";
 
-    if (text.includes(firstKey)) {
-        let firstKeyWord = text.replace(new RegExp(firstKey, 'g'), firstKeyWord);
-        result.innerHTML = firstKeyWord;
-    }
-    // if (text.includes(secondKey)) {
-    //     result.innerHTML = text + "imes";
-    // }
+btnEncrypt.addEventListener("click", () => {
+    originalText = textarea.value;
+
+    const keysEncrypt = {
+        'e': 'enter',
+        'i': 'imes',
+        'a': 'ai',
+        'o': 'ober',
+        'u': 'ufat'
+    };
+
+    encryptedText = originalText.replace(/[a-zA-Z]/g, (macth) => {
+        return keysEncrypt[macth.toLowerCase()] || macth;
+    });
+
+    resultDiv.innerHTML = encryptedText;
 });
+
+btnDecrypt.addEventListener("click", () => {
+    if (encryptedText) {   
+        const keysDecrypt = {
+            'enter': 'e',
+            'imes': 'i',
+            'ai': 'a',
+            'ober': 'o',
+            'ufat': 'u'
+        };
+        
+        const decryptedTexts = encryptedText.replace(/[a-zA-Z]/g, (macth) => {
+            return keysDecrypt[macth.toLowerCase()] || macth;
+        });
+        
+        resultDiv.innerHTML = decryptedTexts;
+    } else {
+        resultDiv.innerHTML = 'Nada para descriptografar. Por favor, crie um texto criptografado primeiro.';
+    }
+})
