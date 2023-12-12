@@ -9,19 +9,23 @@ let encryptedText = "";
 btnEncrypt.addEventListener("click", () => {
     originalText = textarea.value;
 
-    const keysEncrypt = {
-        'e': 'enter',
-        'i': 'imes',
-        'a': 'ai',
-        'o': 'ober',
-        'u': 'ufat'
-    };
+    if (originalText === '') {
+        resultDiv.innerHTML = `<p style="color: #a70000">Digite seu texto!</p>`
+    } else {
+        const keysEncrypt = {
+            'e': 'enter',
+            'i': 'imes',
+            'a': 'ai',
+            'o': 'ober',
+            'u': 'ufat'
+        };
 
-    encryptedText = originalText.replace(/[a-zA-Z]/g, (macth) => {
-        return keysEncrypt[macth.toLowerCase()] || macth;
-    });
+        encryptedText = originalText.replace(/[a-zA-Z]/g, (macth) => {
+            return keysEncrypt[macth.toLowerCase()] || macth;
+        });
 
-    resultDiv.innerHTML = encryptedText;
+        resultDiv.innerHTML = encryptedText;
+    }
 });
 
 btnDecrypt.addEventListener("click", () => {
@@ -40,6 +44,6 @@ btnDecrypt.addEventListener("click", () => {
         
         resultDiv.innerHTML = decryptedTexts;
     } else {
-        resultDiv.innerHTML = 'Nada para descriptografar. Por favor, crie um texto criptografado primeiro.';
+        resultDiv.innerHTML = `<p style="color: #a70000">Crie um texto criptografado primeiro!</p>`;
     }
 })
